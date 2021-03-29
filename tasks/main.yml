@@ -4,6 +4,11 @@
     msg: newrelic_apm_key key is not set
   when: newrelic_apm_key is none
 
+- name: Import NewRelic RPM GPG Key
+  rpm_key:
+    key: https://download.newrelic.com/548C16BF.gpg
+    state: present
+
 # https://docs.newrelic.com/docs/agents/php-agent/getting-started/introduction-new-relic-php#installation
 - name: setup newrelic yum repo (64-bit)
   yum:
